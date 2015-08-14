@@ -9,7 +9,6 @@
 
 - hide passwords - login and signup
 
-
 - events and request page
   - link to the organizer profile
 
