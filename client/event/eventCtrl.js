@@ -11,8 +11,9 @@ angular.module('app.event', [])
       HttpRequests.getEvents()
         .then(function(data){
           $scope.events = data.data;
+
         });
-      };
+    };
 
     $scope.getEvents();
 }]);

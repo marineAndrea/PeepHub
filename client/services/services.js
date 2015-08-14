@@ -179,7 +179,6 @@ angular.module('app.services', ['firebase'])
       });
     };
 
-
     return {
       loginUser: loginUser,
       signupUser: signupUser,
