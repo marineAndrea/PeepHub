@@ -1,18 +1,20 @@
 <loggedin></loggedin>
-<div ng-click='makeRandomEvent()'>click me to create random event</div>
-<div> Search for an event! </div>
-<form class="searchbar" ng-model="search">
-  Location: <input type="text" ng-model="locationfilter">
-  Organizer: <input type="text" ng-model="organizerfilter">
-  Hashtag: <input type="text" ng-model="hashtagfilter">
-</form>
+<div class="main">
+  <div ng-click='makeRandomEvent()'>click me to create random event</div>
+  <div> Search for an event! </div>
+  <form class="searchbar" ng-model="search">
+    Location: <input type="text" ng-model="locationfilter">
+    Organizer: <input type="text" ng-model="organizerfilter">
+    Hashtag: <input type="text" ng-model="hashtagfilter">
+  </form>
 
-<div ng-filter="search" ng-model="events">
-  <div class="eventlist" ng-repeat="event in events | filter:{location:locationfilter, organizer:organizerfilter, hashtag:hashtagfilter}">
-    <div class="eventName"> {{ event.name }} </div>
-    <div class="eventDescription"> {{ event.description }} </div>
-    <div class="eventLocation"> {{ event.location }} </div>
-    <div class="eventOrganizer"> {{ event.organizer }} </div>
-    <div class="eventHashtag"> {{ event.hashtag }} </div>
+  <div ng-filter="search" ng-model="events">
+    <div class="eventlist" ng-repeat="event in events | filter:{location:locationfilter, organizer:organizerfilter, hashtag:hashtagfilter}">
+      <div class="eventName"> {{ event.name }} </div>
+      <div class="eventDescription"> {{ event.description }} </div>
+      <div class="eventLocation"> {{ event.location }} </div>
+      <div class="eventOrganizer"> {{ event.organizer }} </div>
+      <div class="eventHashtag"> {{ event.hashtag }} </div>
+    </div>
   </div>
 </div>

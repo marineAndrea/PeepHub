@@ -1,5 +1,5 @@
 <div class="navbar" ng-controller="loggedInNavController">
-  <div class="headercompanyname">banal-conga-line</div>
+  <div class="headercompanyname">Banal Conga Line</div>
   <ul class="navlinks">
     <li ng-click="togglePostRequest()">POST REQUEST</li>
     <li ng-click="togglePostEvent()">POST EVENT</li>
@@ -8,24 +8,22 @@
     <li ng-click="redirect('user')">PROFILE</li>
     <li ng-click="logout()">LOGOUT</li>
   </ul>
-  <div ng-show="showRequests">
-    Post a new request!!!
-    <form class="postRequestForm" ng-submit="sendPostRequest()">
-      Talent: <input type="text" ng-model="request.talent">
-      Level: <input type="text" ng-model="request.level">
-      Location: <input type="text" ng-model="request.location">
-      <input type="submit" value="POST IT!!!">
+  <div class="postRequestForm" ng-show="showRequests">
+    <form ng-submit="sendPostRequest()">
+      Requested Talent: <input type="text" ng-model="request.talent"><br>
+      Level: <input type="text" ng-model="request.level"><br>
+      Location: <input type="text" ng-model="request.location"><br>
+      <input type="submit" value="SUBMIT">
     </form>
   </div>
-  <div ng-show="showEvents">
-    Post a new event!!!
-    <form class="postEventForm" ng-submit="sendPostEvent()">
-      Name: <input type="text" ng-model="ev.name">
-      Description: <input type="text" ng-model="ev.description">
-      Location: <input type="text" ng-model="ev.location">
-      Organizer: <input type="text" ng-model="ev.organizer">
-      HashTag: <input type="text" ng-model="ev.hashtag">
-      <input type="submit" value="POST IT!!!">
+  <div class="postEventForm" ng-show="showEvents">
+    <form ng-submit="sendPostEvent()">
+      Event Name: <input type="text" ng-model="ev.name"><br>
+      Description: <input type="text" ng-model="ev.description"><br>
+      Location: <input type="text" ng-model="ev.location"><br>
+      Organizer: <input type="text" ng-model="ev.organizer"><br>
+      HashTag: <input type="text" ng-model="ev.hashtag"><br>
+      <input type="submit" value="SUBMIT">
     </form>
   </div>
 </div>
