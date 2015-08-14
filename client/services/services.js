@@ -136,13 +136,13 @@ angular.module('app.services', ['firebase'])
     };
 
     var postRequest = function(request){
-      console.log('post request http request sent', request);
+      console.log('post request http request sent', JSON.stringify(request));
       return $http({
         method: 'POST',
         url: hostUrl + '/request',
         data: JSON.stringify(request),
         headers: {
-          'Content-Type': 'text/json'
+          'Content-Type': 'application/json'
         }
       });
     };
