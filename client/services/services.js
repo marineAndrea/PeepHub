@@ -41,7 +41,6 @@ angular.module('app.services', ['firebase'])
       };
 
       var logout = function(){
-        console.log(auth);
         auth.$unauth();
         $window.localStorage.clear();
       };

@@ -1,14 +1,12 @@
 <loggedin></loggedin>
 
-<div class="main">
-  <dthree></dthree>
-  <h1> User </h1 ng-init="init()">
+<div class="main" ng-init="init()">
   <img class="profilepic" ng-src="{{ user.image }}">
-  <div class="username"> {{ user.username }} </div>
-  <div class="location"> {{ user.location }} </div>
-  <div class="talentholder" ng-repeat="talent in user.talents"> 
-    <div class="talent"> {{ talent.talent }} </div>
-    <div class="level"> {{ talent.level }} </div>
+  <h1>Name:</h1> <div class="username"> {{ user.username }} </div>
+  <h1>Place:</h1> <div class="location"> {{ user.location }} </div>
+  <h1>Talents:</h1><div class="talentholder" ng-repeat="(talent, level) in user.talents"> 
+    <div class="talent"> {{ talent }} </div>
+    Level: <div class="level"> {{ level }} </div>
   </div>
   <div class="email"> {{ user.email }} </div>
 

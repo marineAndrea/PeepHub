@@ -1,22 +1,23 @@
 <loggedout></loggedout>
+<div class="main">
+  <form class="signupform" ng-submit="signup()">
+    Name: <input type="text" ng-model="user.username"> 
+    Email: <input type="text" ng-model="user.email"> <!-- TODO: check for e-mail format -->
+    Password: <input type="text" ng-model="user.password"> <!-- or whatever firebase needs TODO: hide password while typing-->
+    Location: <input type="text" ng-model="user.location">
+    Talents: <div class="talents" ng-repeat="talent in user.talents"> <!-- TODO: if you press enter, it submits the whole form but doesn't add the talent -->
+      {{ talent.talent }}, {{ talent.level}}
+      </div>
+      <input ng-model="newTalent.talent" placeholder="Your talent"> 
+      <input ng-model="newTalent.level" placeholder="Your level">
+      
+      <div class="addTalent" ng-click="addTalent()">ADD TALENT</div>
+    SoundCloud Links: <div class="links" ng-repeat="link in user.links">
+      {{ link }}
+      </div>
+      <input ng-model="newLink" placeholder="Your link">
+      <div class="addLink" ng-click="addLink()">ADD LINK</div>
 
-<form class="signupform" ng-submit="signup()">
-  Name: <input type="text" ng-model="user.username"> 
-  Email: <input type="text" ng-model="user.email"> <!-- TODO: check for e-mail format -->
-  Password: <input type="text" ng-model="user.password"> <!-- or whatever firebase needs TODO: hide password while typing-->
-  Location: <input type="text" ng-model="user.location">
-  Talents: <div class="talents" ng-repeat="talent in user.talents"> <!-- TODO: if you press enter, it submits the whole form but doesn't add the talent -->
-    {{ talent.talent }}, {{ talent.level}}
-    </div>
-    <input ng-model="newTalent.talent" placeholder="Your talent"> 
-    <input ng-model="newTalent.level" placeholder="Your level">
-    
-    <div class="addTalent" ng-click="addTalent()">ADD TALENT</div>
-  SoundCloud Links: <div class="links" ng-repeat="link in user.links">
-    {{ link }}
-    </div>
-    <input ng-model="newLink" placeholder="Your link">
-    <div class="addLink" ng-click="addLink()">ADD LINK</div>
-
-  <input type="submit" value="SIGN UP!!!">
-</form>
+    <input type="submit" value="SIGN UP!!!">
+  </form>
+</div>

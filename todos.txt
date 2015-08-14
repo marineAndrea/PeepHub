@@ -1,0 +1,19 @@
+- css
+  - signup page
+    - style add link and add talent buttons
+    - make it purdy
+  - if you signup and get rejected, the user object gets reset to an empty object
+  - login page
+    - button should say login
+
+-image in profile
+  - add field to signup page
+  - display in user profile
+
+- hide passwords - login and signup
+
+- dropdown menus
+  - location
+  - level
+  - talent
+

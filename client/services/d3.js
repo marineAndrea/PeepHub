@@ -10,7 +10,6 @@ angular.module('app.d3', [])
     scope: false,
 
     link: function (scope, element, attrs) {
-      console.log(scope.d3values);
       var graph = d3.select(element[0]);
       
       var updateGraph = function(){
@@ -23,7 +22,7 @@ angular.module('app.d3', [])
           .attr("width", "100%")
           .attr("height", "100%")
           .attr("fill", "purple");
-          console.log(scope.d3Values);
+
         svg.selectAll('p').data(scope.d3values)
           .enter().append('rect')
           .attr('fill', 'yellow')
@@ -33,8 +32,6 @@ angular.module('app.d3', [])
 
       };
       
-
-
       scope.$watch('d3values', function (newVal, oldVal) {
         updateGraph();
       });
