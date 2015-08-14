@@ -3,12 +3,6 @@ angular.module('app.request', [])
   function($scope, $http, HttpRequests){
     $scope.search = {};
 
-    // $scope.requests = [
-    //   { talent: 'drums', level: '8', location: 'emeryville'},
-    //   { talent: 'trumpet', level: '7', location: 'the mission'},
-    //   { talent: 'violin', level: '5', location: 'novato'}
-    // ];
-
     var init = function() {
       HttpRequests.getRequests() // get all active requests
       .then(function(requests){
@@ -19,8 +13,6 @@ angular.module('app.request', [])
     };
 
     init();
-
-
 
     // TODO: call to Request.getRequest( {with inputs from the form}) 
 }]);

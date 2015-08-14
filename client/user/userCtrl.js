@@ -32,7 +32,7 @@ angular.module('app.user', [])
         console.log('error fetching user', err);
       });
 
-      HttpRequests.getRequests()
+      HttpRequests.getRequests() // get requests by UID
       .then(function(requests){
         var requestsByUid = [];
         for (var i = 0; i < requests.data.length; i++) {
