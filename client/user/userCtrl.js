@@ -54,10 +54,17 @@ angular.module('app.user', [])
         var eventsByUid = [];
         for (var i = 0; i < requests.data.length; i++) {
           if (requests.data[i]['organizer'] === $routeParams.uid) {
+            requests.data[i].date = new Date(requests.data[i].date);
             eventsByUid.push(requests.data[i]);
+            eventsByUid[eventsByUid.length - 1].date = new Date(requests.data[i].date);
           }
         }
         $scope.events = eventsByUid;
+        
+        for (var j = 0; j < $scope.events.length; j++){
+          $scope.events[j].date = new Date($scope.events[j].date);
+          console.log($scope.events);
+        }
       }).catch(function(err){ 
         console.log('error fetching requests', err);
       });

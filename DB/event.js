@@ -3,6 +3,7 @@ var bluebird = require('bluebird');
 
 var eventSchema = mongoose.Schema({
   name: { type: String },
+  date: { type: Date },
   description: { type: String },
   location: { type: String },
   neighborhood: { type: String },

@@ -49,16 +49,16 @@
     <br>
     <table>
       <tr>
+        <th>Date</th>
         <th>Name</th>
-        <th>Description</th>
         <th>Location</th>
         <th>Hashtags</th>
       </tr>
       <tr class="eventlist" ng-repeat="event in events track by $index">
-        <td class="event"> {{ event.name }}</td>
-        <td class="event"> {{ event.description }}</td>
-        <td class="event"> {{ event.location }}</td>
-        <td class="event"> {{ event.hashtags.join(' ') }}</td>
+        <td> {{ event.date.getFullYear() }}-{{ event.date.getMonth() }}-{{ event.date.getDay() }}</td>
+        <td> {{ event.name }}</td>
+        <td> {{ event.address }}<br><span class="neighborhood">{{ event.neighborhood }}</span></td>
+        <td> {{ event.hashtags.join(' ') }}</td>
         <br>
       </tr>
     </table>  

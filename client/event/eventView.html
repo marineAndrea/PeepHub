@@ -3,21 +3,21 @@
   <div ng-click='makeRandomEvent()'>click me to create random event</div>
   <div> Search for an event! </div>
   <form class="searchbar" ng-model="search">
+    Date: <input type="text" ng-model="datefilter">
     Name: <input type="text" ng-model="namefilter">
-    Location: <input type="text" ng-model="locationfilter">
-    Organizer: <input type="text" ng-model="organizerfilter">
+    Neighborhood: <input type="text" ng-model="neighborhoodfilter">
     Hashtag: <input type="text" ng-model="hashtagfilter">
   </form>
 
   <div ng-filter="search" ng-model="events">
-    <div class="eventlist" ng-repeat="event in events | filter:{name:namefilter, location:locationfilter, organizer:organizerfilter, hashtag:hashtagfilter}">
+    <div class="eventlist" ng-repeat="event in events | filter:{name:namefilter, neighborhood:neighborhoodfilter, organizer:organizerfilter, hashtags:hashtagfilter}">
+      <div class="eventDate"> {{ event.date }} </div>
       <div class="eventName"> {{ event.name }} </div>
-      <div class="eventDescription"> {{ event.description }} </div>
-      <div class="eventLocation"> {{ event.location }} </div>
+      <div class="eventNeighborhood"> {{ event.neighborhood }} </div>
       <div class="eventOrganizer">
-        <a class="linktouser" ng-href="http://localhost:8000/#/user/{{event.uid}}">Check it out!!</a>
+        <a class="linktouser" ng-href="http://localhost:8000/#/user/{{event.uid}}">Contact organizer!</a>
       </div>
-      <div class="eventHashtag"> {{ event.hashtag }} </div>
+      <div class="eventHashtags"> {{ event.hashtags.join(' ') }} </div>
     </div>
   </div>
 </div>
