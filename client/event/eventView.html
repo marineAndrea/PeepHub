@@ -14,7 +14,9 @@
       <div class="eventName"> {{ event.name }} </div>
       <div class="eventDescription"> {{ event.description }} </div>
       <div class="eventLocation"> {{ event.location }} </div>
-      <div class="eventOrganizer"> {{ event.organizer }} </div>
+      <div class="eventOrganizer">
+        <a class="linktouser" ng-href="http://localhost:8000/#/user/{{event.uid}}">Check it out!!</a>
+      </div>
       <div class="eventHashtag"> {{ event.hashtag }} </div>
     </div>
   </div>

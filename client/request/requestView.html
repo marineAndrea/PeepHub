@@ -12,7 +12,9 @@
       <div class="talent"> {{ request.talent }} </div>
       <div class="level"> {{ request.level }} </div>
       <div class="location"> {{ request.location }} </div>
-      <div class="gotouser"> Check it out!! </div>
+      <div class="gotouser">
+        <a class="linktouser" ng-href="http://localhost:8000/#/user/{{request.uid}}">Check it out!!</a>
+      </div>
     </div>
   </div>
 </div>
