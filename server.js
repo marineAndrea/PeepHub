@@ -63,16 +63,13 @@ app.get('/api/requests', function(req, res){
   // right now get all requests TODO filter requests
   // return object of requests
   db.getRequests(function(requests){
-    // console.log(requests);
+   
     res.end(JSON.stringify(requests));
   });
 });
 
 app.post('/api/request', function(req, res){
-  // receive req obj
-  // return post it
-  // return 304
-  console.log('made it');
+  console.log('-------------> ', req.body);
   var reqObj = req.body;
   db.addRequest(reqObj, function(){
     res.end(200);
@@ -90,7 +87,7 @@ app.get('/api/events/:UID', function(req, res){
   });
 });
 
-app.get('/api/events', function(req, res){
+app.get('/api/event', function(req, res){
   // return all events as an object
   db.getEvents(function(events){
     res.end(JSON.stringify(events));

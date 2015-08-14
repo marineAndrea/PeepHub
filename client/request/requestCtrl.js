@@ -12,8 +12,8 @@ angular.module('app.request', [])
     var init = function() {
       HttpRequests.getRequests() // get all requests
       .then(function(requests){
-        console.log(requests);
         $scope.requests = requests.data;
+        console.log(requests.data);
       }).catch(function(err){ 
         console.log('error fetching requests', err);
       });

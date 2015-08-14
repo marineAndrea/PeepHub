@@ -89,6 +89,7 @@ exports.addTalents = addTalents = function(usrname, talents, callback){
 
 //Adds request to database
 exports.addRequest = addRequest = function(requestData, callback){
+  console.log(requestData);
   var request = new Request(requestData);
   request.save(function(err, requestObj){
     if(err) console.log(err)
