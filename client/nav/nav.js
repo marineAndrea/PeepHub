@@ -22,6 +22,7 @@ angular.module('app.nav',[])
 
   $scope.sendPostRequest = function(){
     $scope.request.uid = Auth.getUid();
+    $scope.togglePostRequest();
     HttpRequests.postRequest($scope.request)
     .then(function(data){
       console.log('request posted', data);
@@ -32,6 +33,7 @@ angular.module('app.nav',[])
 
   $scope.sendPostEvent = function(){
     $scope.ev.uid = Auth.getUid();
+    $scope.togglePostEvent();
     HttpRequests.postEvent($scope.ev)
       .then(function(data){
         console.log('event posted', data);

@@ -44,6 +44,19 @@ angular.module('app.user', [])
       }).catch(function(err){ 
         console.log('error fetching requests', err);
       });
+
+      HttpRequests.getEvents() // get requests by UID // refactor this
+      .then(function(requests){
+        var eventsByUid = [];
+        for (var i = 0; i < requests.data.length; i++) {
+          if (requests.data[i]['uid'] === $routeParams.uid) {
+            eventsByUid.push(requests.data[i]);
+          }
+        }
+        $scope.events = eventsByUid;
+      }).catch(function(err){ 
+        console.log('error fetching requests', err);
+      });
     };
 
     init();

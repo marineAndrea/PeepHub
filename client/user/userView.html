@@ -26,4 +26,12 @@
     <div class="talent"> {{ request.location }}</div>
     <div class="deleteRequest" ng-click="deleteRequest($index)">delete</div>
   </div>
+
+  <h1> Events </h1>
+  <div class="eventlist" ng-repeat="event in events track by $index">
+    <div class="event"> {{ event.name }}</div>
+    <div class="event"> {{ event.description }}</div>
+    <div class="event"> {{ event.location }}</div>
+    <div class="event"> {{ event.hashtag }}</div>
+  </div>
 </div>
