@@ -11,7 +11,10 @@ angular.module('app.user', [])
   
     $scope.deleteRequest = function(index) {
       console.log('index', index, 'sc-req', $scope.requests);
-      HttpRequests.makeRequestInactive($scope.requests[index]._id);
+      HttpRequests.makeRequestInactive($scope.requests[index]._id)
+        .then(function(){
+          $scope.requests = $scope.requests.slice(0, index).concat($scope.requests.slice(index, 0));
+        });
     };
     
     var init = function() {

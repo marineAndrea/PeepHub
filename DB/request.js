@@ -7,6 +7,7 @@ var requestSchema = mongoose.Schema({
   uid: {type: String },
   talent: { type: Object },
   location: { type: String },
+  level: {type: String},
   active: { type: Boolean, required: true , default: true}
 });
 
