@@ -13,6 +13,7 @@ angular.module('app.user', [])
       console.log('index', index, 'sc-req', $scope.requests);
       HttpRequests.makeRequestInactive($scope.requests[index]._id)
         .then(function(){
+          console.log($scope.requests.slice(0,index));
           $scope.requests = $scope.requests.slice(0, index).concat($scope.requests.slice(index, 0));
         });
     };
@@ -52,7 +53,7 @@ angular.module('app.user', [])
       .then(function(requests){
         var eventsByUid = [];
         for (var i = 0; i < requests.data.length; i++) {
-          if (requests.data[i]['uid'] === $routeParams.uid) {
+          if (requests.data[i]['organizer'] === $routeParams.uid) {
             eventsByUid.push(requests.data[i]);
           }
         }

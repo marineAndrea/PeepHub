@@ -199,7 +199,10 @@ h1 {
 th {
   font-weight: 400;
 }
-
+tr {
+  margin: 5px;
+  min-height: 100px;
+}
 td, th {
   min-width: 100px;
   text-align: center;

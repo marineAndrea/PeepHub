@@ -192,7 +192,7 @@ exports.getEvents = getEvents = function(callback){
 };
 
 exports.getUIDEvents = getUIDEvents = function(uid, callback){
-  var query = {'uid': uid};
+  var query = {'organizer': uid};
   Event.find(query, function(err, results){
     if(err) console.log(err);
     else callback(results);

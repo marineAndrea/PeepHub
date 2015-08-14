@@ -1,10 +1,12 @@
 angular.module('app.nav',[])
-.controller('loggedInNavController', ['$scope','$location', 'HttpRequests', 'Auth', function($scope, $location, HttpRequests, Auth){
+.controller('loggedInNavController', ['$scope','$location', '$window', 'HttpRequests', 'Auth', function($scope, $location, $window, HttpRequests, Auth){
   $scope.showRequests = false;
   $scope.showEvents = false;
   
   $scope.request = {};
-  $scope.ev = {};
+  $scope.ev = {
+    organizer: $window.localStorage.getItem('uid')
+  };
 
   $scope.redirect = function(newpath){
     $location.path(newpath);
@@ -29,11 +31,18 @@ angular.module('app.nav',[])
     }, function(err){
       console.log('error posting request', err);
     });
+    $location.path('/user');
+  };
+
+  $scope.parseHashtags = function(){
+    $scope.ev.hashtags = $scope.ev.hashtags.split(' ');
   };
 
   $scope.sendPostEvent = function(){
-    $scope.ev.uid = Auth.getUid();
+    console.log('before',$scope.ev.hashtags);
     $scope.togglePostEvent();
+    $scope.parseHashtags();
+    console.log('after',$scope.ev.hashtags);
     HttpRequests.postEvent($scope.ev)
       .then(function(data){
         console.log('event posted', data);

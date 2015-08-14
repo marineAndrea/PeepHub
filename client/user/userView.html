@@ -47,12 +47,20 @@
     <br>
     <h1> Events </h1>
     <br>
-    <div class="eventlist" ng-repeat="event in events track by $index">
-      <div class="event"> {{ event.name }}</div>
-      <div class="event"> {{ event.description }}</div>
-      <div class="event"> {{ event.location }}</div>
-      <div class="event"> {{ event.hashtag }}</div>
-      <br>
-    </div>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th>Hashtags</th>
+      </tr>
+      <tr class="eventlist" ng-repeat="event in events track by $index">
+        <td class="event"> {{ event.name }}</td>
+        <td class="event"> {{ event.description }}</td>
+        <td class="event"> {{ event.location }}</td>
+        <td class="event"> {{ event.hashtags.join(' ') }}</td>
+        <br>
+      </tr>
+    </table>  
   </div>
 </div>
