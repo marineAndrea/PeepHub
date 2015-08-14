@@ -1,35 +1,39 @@
 <loggedin></loggedin>
 
 <div class="main" ng-init="init()">
-  <img class="profilepic" ng-src="{{ user.image }}">
-  <h1>Name:</h1> <div class="username"> {{ user.username }} </div>
-  <h1>Place:</h1> <div class="location"> {{ user.location }} </div>
-  <h1>Talents:</h1><div class="talentholder" ng-repeat="(talent, level) in user.talents"> 
-    <div class="talent"> {{ talent }} </div>
-    Level: <div class="level"> {{ level }} </div>
-  </div>
-  <div class="email"> {{ user.email }} </div>
+  <div class="leftcolumn">  
+    <img class="profilepic" ng-src="{{ user.profilepic || 'https://avatars0.githubusercontent.com/u/11467677?v=3&s=460' }}">
+    <h1>Name:</h1> <div class="username"> {{ user.username }} </div>
+    <h1>Location:</h1> <div class="location"> {{ user.location }} </div>
+  </div><!--
+  --><div class="rightcolumn">
+    <h1>Talents:</h1><div class="talentholder" ng-repeat="(talent, level) in user.talents"> 
+      <div class="talent"> {{ talent }} </div>
+      Level: <div class="level"> {{ level }} </div>
+    </div>
+    <div class="email"> {{ user.email }} </div>
+  
+    <h1> Links </h1>
+      <div class="linklist" ng-repeat="link in user.links"> 
+        <div class="link">
+          <iframe ng-src="{{trustSrc(modifyLink(link))}}"></iframe>
+        </div>
+      </div>
 
-  <h1> Links </h1>
-  <div class="linklist" ng-repeat="link in user.links"> 
-    <div class="link">
-      <iframe ng-src="{{trustSrc(modifyLink(link))}}"></iframe>
+      <h1> Requests </h1>
+      <div class="requestlist" ng-repeat="request in requests track by $index">
+        <div class="talent"> {{ request.talent }}</div>
+        <div class="talent"> {{ request.level }}</div>
+        <div class="talent"> {{ request.location }}</div>
+        <div class="deleteRequest" ng-click="deleteRequest($index)">delete</div>
+      </div>
+
+      <h1> Events </h1>
+      <div class="eventlist" ng-repeat="event in events track by $index">
+        <div class="event"> {{ event.name }}</div>
+        <div class="event"> {{ event.description }}</div>
+        <div class="event"> {{ event.location }}</div>
+        <div class="event"> {{ event.hashtag }}</div>
+      </div>
     </div>
   </div>
-
-  <h1> Requests </h1>
-  <div class="requestlist" ng-repeat="request in requests track by $index">
-    <div class="talent"> {{ request.talent }}</div>
-    <div class="talent"> {{ request.level }}</div>
-    <div class="talent"> {{ request.location }}</div>
-    <div class="deleteRequest" ng-click="deleteRequest($index)">delete</div>
-  </div>
-
-  <h1> Events </h1>
-  <div class="eventlist" ng-repeat="event in events track by $index">
-    <div class="event"> {{ event.name }}</div>
-    <div class="event"> {{ event.description }}</div>
-    <div class="event"> {{ event.location }}</div>
-    <div class="event"> {{ event.hashtag }}</div>
-  </div>
-</div>

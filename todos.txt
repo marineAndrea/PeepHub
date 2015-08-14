@@ -5,6 +5,7 @@
   - if you signup and get rejected, the user object gets reset to an empty object
   - login page
     - button should say login
+  - style user profile
 
 -image in profile
   - add field to signup page
