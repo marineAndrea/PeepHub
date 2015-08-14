@@ -1,4 +1,4 @@
-/*html, body, div, span, applet, object, iframe,
+html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -17,9 +17,9 @@ time, mark, audio, video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-}*/
+}
 /* HTML5 display-role reset for older browsers */
-/*article, aside, details, figcaption, figure,
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
@@ -40,7 +40,7 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-}*/
+}
 
 /********************** end css reset**************/
 
@@ -48,7 +48,7 @@ table {
 
 
 /* Custom CSS */
-/*body {
+body {
   font-family: "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #666;
   font-weight: 100;
@@ -119,9 +119,9 @@ input[type=submit]:hover {
   background-color: red;
 }
 
-input[type=text] {*/
+input[type=text] {
   /*text-align: right;*/
-/*  width: 300px;
+  width: 300px;
   display: block;
 }
 
@@ -140,4 +140,4 @@ input[type=text] {*/
   height: 100%;
   background: #F2EDD8;
   font-size: 20px;
-}*/
+}
