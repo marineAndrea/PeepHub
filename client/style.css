@@ -136,10 +136,12 @@ input[type=text] {
 
 .main {
   margin: 0 10%;
-  padding: 5% 10%;
+  padding: 3%;
   height: 100%;
   background: #F2EDD8;
   font-size: 20px;
+  max-width: 960px;
+  min-width: 500px;
 }
 .signupform {
     width: 30%;
@@ -151,3 +153,26 @@ input[type=text] {
     width: 90%;
     margin: 0 auto;
 }
+
+.profilepic {
+  max-height: 300px;
+  max-width: 300px;
+  border-radius: 40px;
+}
+.leftcolumn,.rightcolumn{
+  display: inline-block;
+  width: 50%;
+}
+img.profilepic {}
+
+
+
+
+
+
+
+
+
+
+
+
