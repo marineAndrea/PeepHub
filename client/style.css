@@ -62,7 +62,6 @@ body {
 .navbar {
   width: 100%;
   height: 50px;
-  background-color: #BD3C37;
   color: #F2F1EF;
   position: relative;
   text-align: center;
@@ -135,9 +134,10 @@ input[type=text] {
 }
 
 .main {
+  vertical-align: top;
   margin: 0 10%;
   padding: 3%;
-  height: 100%;
+  height: 150%;
   background: #F2EDD8;
   font-size: 20px;
   max-width: 960px;
@@ -158,14 +158,59 @@ input[type=text] {
   max-height: 300px;
   max-width: 300px;
   border-radius: 40px;
+  display: block;
+  margin-bottom: 10px;
 }
 .leftcolumn,.rightcolumn{
   display: inline-block;
   width: 50%;
+  vertical-align: top;
 }
-img.profilepic {}
 
+.leftcolumn div, .rightcolumn div {
+    vertical-align: top;
+    display: inline-block;
+    padding-left: 15px;
+    padding-bottom: 3px;
+}
 
+h1 {
+    display: inline-block;
+    font-weight: 600;
+    padding-bottom: 10px;
+    padding-top: 15px;
+}
+
+.username {
+    font-size: 40px;
+    color: #44B3C2;
+    font-weight: 300;
+}
+
+.location {
+  font-style: italic;
+  font-size: 25px;
+}
+.link {
+  width: 400px;
+  height: 110px;
+}
+
+th {
+  font-weight: 400;
+}
+tr {
+  margin: 5px;
+  min-height: 100px;
+}
+td, th {
+  min-width: 100px;
+  text-align: center;
+}
+
+table {
+  padding-left: 10px
+}
 
 
 

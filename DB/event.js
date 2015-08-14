@@ -9,9 +9,8 @@ var eventSchema = mongoose.Schema({
   zipcode: { type: String },
   city: { type: String },
   address: { type: String },
-  uid: { type: String },
-  organizer: { type: String },
-  hashtag: { type: String },
+  organizer: { type: String }, // will be uid
+  hashtags: { type: Array },
   users: { type: Array },
   active: { type: Boolean, required: true , default: true}
 });
