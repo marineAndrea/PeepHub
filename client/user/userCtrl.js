@@ -10,8 +10,8 @@ angular.module('app.user', [])
     };
   
     $scope.deleteRequest = function(index) {
+      console.log('index', index, 'sc-req', $scope.requests);
       HttpRequests.makeRequestInactive($scope.requests[index]._id);
-      $scope.requests[index] = 0; // TODO: this should run Requests.makeRequestInactive()
     };
     
     var init = function() {
@@ -21,7 +21,7 @@ angular.module('app.user', [])
         $location.path('/user/' + $window.localStorage.getItem('uid'));
       }
 
-      HttpRequests.getUser( $routeParams.uid )
+      HttpRequests.getUser($routeParams.uid)
       .then(function(user){
         // if user is null redirect to user's profile
         if (user.data === "null") {
@@ -32,21 +32,32 @@ angular.module('app.user', [])
         console.log('error fetching user', err);
       });
 
-      HttpRequests.getRequests( $routeParams.uid )
+      HttpRequests.getRequests() // get requests by UID
       .then(function(requests){
-        $scope.requests = requests.data;
+        var requestsByUid = [];
+        for (var i = 0; i < requests.data.length; i++) {
+          if (requests.data[i]['uid'] === $routeParams.uid) {
+            requestsByUid.push(requests.data[i]);
+          }
+        }
+        $scope.requests = requestsByUid;
+      }).catch(function(err){ 
+        console.log('error fetching requests', err);
+      });
+
+      HttpRequests.getEvents() // get requests by UID // refactor this
+      .then(function(requests){
+        var eventsByUid = [];
+        for (var i = 0; i < requests.data.length; i++) {
+          if (requests.data[i]['uid'] === $routeParams.uid) {
+            eventsByUid.push(requests.data[i]);
+          }
+        }
+        $scope.events = eventsByUid;
       }).catch(function(err){ 
         console.log('error fetching requests', err);
       });
     };
 
     init();
-
-    // HttpRequests.getRequests( {name: $routeParams.username})
-    //   .then(function(data){
-    //     console.log('received requests', data);
-    //     $scope.requests = data;
-    //   }, function(err){
-    //     console.log('error getting requests', err);
-    //   });
 }]);

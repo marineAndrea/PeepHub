@@ -20,9 +20,9 @@ app.get('/api/user/:UID', function(req, res){
   // receive uid
   // return user object
   var UID = req.params.UID;
-  console.log('------------->>>>>>',db.getUID);
+  // console.log('------------->>>>>>',db.getUID);
   db.getUID(UID, function(userData){
-    console.log("26", userData);
+    // console.log("26", userData);
     res.end(JSON.stringify(userData));
   });
 });
@@ -40,10 +40,8 @@ app.post('/api/user', function(req, res) {
   // add it to database
   // respond with 304 - TODO: redirect here or client-side? 
   var userObj = req.body;
-  console.log(req.body);
   // console.log("============================>", req.body);
   db.addUser(userObj, function(){
-    console.log('hello');
     res.end();
   });
 });
@@ -54,7 +52,7 @@ app.get('/api/requests/:UID', function(req, res){
   var UID = req.params.UID;
   // console.log(req.params.UID);
   db.getUIDRequests(UID, function(requestsData){
-    console.log("49", requestsData);
+    // console.log("49", requestsData);
     res.end(JSON.stringify(requestsData));
   });
 });
@@ -63,13 +61,19 @@ app.get('/api/requests', function(req, res){
   // right now get all requests TODO filter requests
   // return object of requests
   db.getRequests(function(requests){
-   
+    console.log('-------------------------------------> req ',requests);
     res.end(JSON.stringify(requests));
   });
 });
 
+app.post('/api/toggle', function(req, res) {
+  db.toggleRequest(req.body, function() {
+    res.end('', 200);
+  });
+});
+
 app.post('/api/request', function(req, res){
-  console.log('-------------> ', req.body);
+  // console.log('-------------> ', req.body);
   var reqObj = req.body;
   db.addRequest(reqObj, function(){
     res.end(200);
@@ -82,7 +86,7 @@ app.get('/api/events/:UID', function(req, res){
   var UID = req.params.UID;
   // console.log(req.params.UID);
   db.getUIDEvents(UID, function(eventsData){
-    console.log("79", eventsData);
+    // console.log("79", eventsData);
     res.end(JSON.stringify(eventsData));
   });
 });
@@ -102,7 +106,7 @@ app.post('/api/event', function(req, res){
   db.addEvent(eventObj, function(){
     res.end(200);
   });
-})
+});
 
 
 

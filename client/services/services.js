@@ -20,7 +20,6 @@ angular.module('app.services', ['firebase'])
     var modifyLink = function(link) {
       var input = link.substring(23);
       var output = "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/" + input;
-      //return '"'+output+'"';
       return output;
     };
     return {modifyLink: modifyLink};
@@ -78,7 +77,7 @@ angular.module('app.services', ['firebase'])
         login: login,
         logout: logout,
         signup: signup,
-        removeUser, removeUser,
+        removeUser: removeUser,
         getUid: getUid,
         isAuth: isAuth
       };
@@ -152,7 +151,19 @@ angular.module('app.services', ['firebase'])
       return $http({
         method: 'POST',
         url: hostUrl + '/event',
-        data: ev,
+        data: ev, // stringify 
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+    };
+
+    var makeRequestInactive = function(id) {
+      console.log('post request inactive http request sent', JSON.stringify(id));
+      return $http({
+        method: 'POST',
+        url: hostUrl + '/toggle',
+        data: JSON.stringify({id: id}),
         headers: {
           'Content-Type': 'application/json'
         }
@@ -178,6 +189,7 @@ angular.module('app.services', ['firebase'])
       postRequest: postRequest,
       postEvent: postEvent,
       getEvents: getEvents,
-      getAllUsers: getAllUsers
+      getAllUsers: getAllUsers,
+      makeRequestInactive: makeRequestInactive
     };
   }]);
