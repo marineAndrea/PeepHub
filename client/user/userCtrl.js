@@ -3,6 +3,7 @@ angular.module('app.user', [])
   function($sce, $scope, $location, $window, $routeParams, HttpRequests, Util){
     $scope.user = {};
     $scope.modifyLink = Util.modifyLink;
+    $scope.d3values = [1,2,3,4,5,6,7];
 
     $scope.trustSrc = function(src) {
       return $sce.trustAsResourceUrl(src);
@@ -23,13 +24,10 @@ angular.module('app.user', [])
       HttpRequests.getUser( $routeParams.uid )
       .then(function(user){
         // if user is null redirect to user's profile
-        console.log('sfsdaf', user);
         if (user.data === "null") {
           $location.path('/user/' + $window.localStorage.getItem('uid'));
         }
-
         $scope.user = user.data;
-
       }).catch(function(err){ 
         console.log('error fetching user', err);
       });
