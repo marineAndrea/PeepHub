@@ -12,7 +12,6 @@ angular.module('app.user', [])
     $scope.deleteRequest = function(index) {
       console.log('index', index, 'sc-req', $scope.requests);
       HttpRequests.makeRequestInactive($scope.requests[index]._id);
-      // $scope.requests[index] = 0; // TODO: this should run Requests.makeRequestInactive()
     };
     
     var init = function() {
@@ -33,7 +32,7 @@ angular.module('app.user', [])
         console.log('error fetching user', err);
       });
 
-      HttpRequests.getRequests( $routeParams.uid )
+      HttpRequests.getRequests() //get user's requests
       .then(function(requests){
         $scope.requests = requests.data;
       }).catch(function(err){ 

@@ -46,11 +46,11 @@ exports.removeUser = removeUser = function(usrname, callback){
 exports.getUID = getUID = function(uid, callback){
   console.log('uid', uid );
   User.findOne({'uid': uid}, function(err, results){
-    console.log('getuidcheck',err, results);
+    // console.log('getuidcheck',err, results);
     if(err) {
       console.log("getUID error",err);
     } else {
-    console.log(uid);
+    // console.log(uid);
       callback(results);
     }
   });
@@ -146,10 +146,7 @@ exports.getReqTalents = getReqTalents = function(talent, callback){
 
 exports.parseReq = parseReq = function(request, callback){
   //Parses the request, and returns the users that meets the criteria
-  var query = {
-    'location': request.location
-  };
-  // console.log(query);
+  var query = {'location': request.location};
   User.find(query, 'username location talents', function(err, results){
     if (err) console.log(err);
     else callback(results);
@@ -157,7 +154,8 @@ exports.parseReq = parseReq = function(request, callback){
 };
 
 exports.getRequests = getRequests = function(callback){
-  Request.find(function(err, results){
+  var query = {'active': true};
+  Request.find(query, function(err, results){
     if(err) console.log(err);
     else callback(results);
   });

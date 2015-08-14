@@ -7,7 +7,6 @@ angular.module('app.nav',[])
   $scope.ev = {};
 
   $scope.redirect = function(newpath){
-    console.log(newpath)
     $location.path(newpath);
   };
 
@@ -29,7 +28,7 @@ angular.module('app.nav',[])
     }, function(err){
       console.log('error posting request', err);
     });
-  }
+  };
 
   $scope.sendPostEvent = function(){
     $scope.ev.uid = Auth.getUid();
@@ -39,7 +38,7 @@ angular.module('app.nav',[])
       }, function(err){
         console.log('error posting event', err);
       });
-  }
+  };
 
   $scope.logout = function(){
     Auth.logout();

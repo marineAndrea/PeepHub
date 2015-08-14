@@ -77,7 +77,7 @@ angular.module('app.services', ['firebase'])
         login: login,
         logout: logout,
         signup: signup,
-        removeUser, removeUser,
+        removeUser: removeUser,
         getUid: getUid,
         isAuth: isAuth
       };
