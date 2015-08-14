@@ -141,3 +141,13 @@ input[type=text] {
   background: #F2EDD8;
   font-size: 20px;
 }
+.signupform {
+    width: 30%;
+    margin: 0 auto;
+    text-align: center;
+}
+.signupform input {
+
+    width: 90%;
+    margin: 0 auto;
+}

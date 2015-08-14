@@ -1,6 +1,7 @@
 angular.module('app.signin', ['app.services'])
 
 .controller('signinController', ['$scope', '$location', 'HttpRequests', 'Auth', '$window', function($scope, $location, HttpRequests, Auth, $window){
+  
   $scope.user = {
     talents: [],
     links: []
@@ -45,20 +46,21 @@ angular.module('app.signin', ['app.services'])
 
   $scope.signup = function() {
      $scope.user.talents = convertTalentsToObject();
-
      var email = $scope.user.email;
      var password = $scope.user.password;
-
      Auth.signup(email, password)
      .then(function(userData){
-       console.log('line 42 signin', userData);
        $scope.user.uid = userData.uid;
        HttpRequests.signupUser($scope.user, userData)
        .then(function(response){
          $window.localStorage.setItem('uid', userData.uid);
-         console.log('user posted', response);
-         Auth.login(email, password);
-         $location.path('/user/'+ userData.uid);
+         Auth.login(email, password)
+          .then(function(){
+           $location.path('/user/'+ userData.uid);
+          })
+          .catch(function(){
+            console.log('login failed!!!');
+          });
        }).catch(function(error) {
          console.log('error posting user', error);
          Auth.removeUser(email, password);
@@ -66,14 +68,16 @@ angular.module('app.signin', ['app.services'])
      })
      .catch(function(error){
        console.log("Firebase signup failed:",error);
+       $scope.user.talents = [];
      });
    };
 
 
   var convertTalentsToObject = function() {
     var converted = {};
+    console.log('before',$scope.user.talents);
     for (var i = 0; i < $scope.user.talents.length; i++){
-      converted[$scope.user.talents.talent] = $scope.user.talents.level; 
+      converted[$scope.user.talents[i].talent] = $scope.user.talents[i].level; 
     }
     return converted;
   };
