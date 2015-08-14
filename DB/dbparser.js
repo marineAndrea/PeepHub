@@ -19,13 +19,13 @@ exports.addUser = addUser = function(userData, callback){
   //Add new user to databasemove
   var user = new User(userData);
   user.save(function(err, userObj){
-    if(err) console.log(err)
+    if(err) console.log(err);
     else{
       console.log("User successfully added!");
       callback(userObj);
     }
   });
-}
+};
 
 /**
  *  Function: removeUser
@@ -41,7 +41,7 @@ exports.removeUser = removeUser = function(usrname, callback){
       callback(err);
     }
   });
-}
+};
 
 exports.getUID = getUID = function(uid, callback){
   console.log('uid', uid );
@@ -73,7 +73,7 @@ exports.getUsers = getUsers = function(callback){
 **/
 exports.addTalents = addTalents = function(usrname, talents, callback){
   //add talents to database for given user
-  callback = callback || function(element){ console.log(element)};;
+  callback = callback || function(element){ console.log(element);};
   username = parseUsername(usrname);
   var query = {'username': username};
   var options = {};
@@ -81,7 +81,7 @@ exports.addTalents = addTalents = function(usrname, talents, callback){
     if(err) console.log(err);
     else callback(result);
   });
-}
+};
 
 /******************************************************************
  *  Request based stuff
@@ -92,29 +92,48 @@ exports.addRequest = addRequest = function(requestData, callback){
   console.log(requestData);
   var request = new Request(requestData);
   request.save(function(err, requestObj){
-    if(err) console.log(err)
+    if(err) console.log(err);
     else{
       console.log("request successfully added!");
       callback(requestObj);
     }
   });
-}
+};
 
 exports.toggleRequest = toggleRequest = function(request, callback){
-  if(request.active){
-    toggleRequestFalse(request, callback);
-  } else{
-    toggleRequestTrue(request, callback);
-  }
-}
+  var query = {"_id": request.id};
+  Request.find(query, function(err, results){
+    if (err) {
+      console.log(err);
+    } else {
+      if (results[0].active) {
+        toggleRequestFalse(results, callback);
+      } else {
+        toggleRequestTrue(results, callback);
+      }
+    }
+  });
+};
 
-exports.toggleRequstFalse = toggleRequestFalse = function(request, callback){
-  Request.update(request._id, {'active': false});
-}
+exports.toggleRequestFalse = toggleRequestFalse = function(request, callback){
+  Request.update(request[0], {'active': false}, function(err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      callback(result);
+    }
+  });
+};
 
 exports.toggleRequestTrue = toggleRequestTrue = function(request, callback){
-  Request.update(request._id, {'active': true});
-}
+  Request.update(request[0], {'active': true}, function(err, result) {
+    if (err) {
+      console.log(err);
+    } else {
+      callback(result);
+    }
+  });
+};
 
 exports.getReqTalents = getReqTalents = function(talent, callback){
   //Get all users related to requested talent
@@ -122,35 +141,35 @@ exports.getReqTalents = getReqTalents = function(talent, callback){
   User.find(talent, function(err, results){
     if (err) console.log(err);
     else callback(results);
-  })
-}
+  });
+};
 
 exports.parseReq = parseReq = function(request, callback){
   //Parses the request, and returns the users that meets the criteria
   var query = {
     'location': request.location
-  }
+  };
   // console.log(query);
   User.find(query, 'username location talents', function(err, results){
     if (err) console.log(err);
     else callback(results);
   });
-}
+};
 
 exports.getRequests = getRequests = function(callback){
   Request.find(function(err, results){
     if(err) console.log(err);
     else callback(results);
   });
-}
+};
 
 exports.getUIDRequests = getUIDRequests = function(uid, callback){
   var query = {'uid': uid};
   Request.find(uid, function(err, results){
     if(err) console.log(err);
     else callback(results);
-  })
-}
+  });
+};
 
 /******************************************************************
  *  Events based stuff
@@ -159,20 +178,20 @@ exports.getUIDRequests = getUIDRequests = function(uid, callback){
 exports.addEvent = addEvent = function(eventData, callback){
   var event = new Event(eventData);
   event.save(function(err, eventObj){
-    if(err) console.log(err)
+    if(err) console.log(err);
     else{
       console.log("event successfully added!");
       callback(eventObj);
     }
   });
-}
+};
 
 exports.getEvents = getEvents = function(callback){
   Event.find(function(err, results){
     if(err) console.log(err);
     else callback(results);
   });
-}
+};
 
 exports.getUIDEvents = getUIDEvents = function(uid, callback){
   var query = {'uid': uid};
@@ -180,7 +199,7 @@ exports.getUIDEvents = getUIDEvents = function(uid, callback){
     if(err) console.log(err);
     else callback(results);
   });
-}
+};
 
 
 
@@ -196,4 +215,4 @@ var parseUsername = function(username){
   else if(typeof username === 'object'){
     return username.username;
   }
-}
+};

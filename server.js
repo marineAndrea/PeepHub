@@ -20,7 +20,7 @@ app.get('/api/user/:UID', function(req, res){
   // receive uid
   // return user object
   var UID = req.params.UID;
-  console.log('------------->>>>>>',db.getUID);
+  // console.log('------------->>>>>>',db.getUID);
   db.getUID(UID, function(userData){
     console.log("26", userData);
     res.end(JSON.stringify(userData));
@@ -40,10 +40,8 @@ app.post('/api/user', function(req, res) {
   // add it to database
   // respond with 304 - TODO: redirect here or client-side? 
   var userObj = req.body;
-  console.log(req.body);
   // console.log("============================>", req.body);
   db.addUser(userObj, function(){
-    console.log('hello');
     res.end();
   });
 });
@@ -65,6 +63,13 @@ app.get('/api/requests', function(req, res){
   db.getRequests(function(requests){
    
     res.end(JSON.stringify(requests));
+  });
+});
+
+app.post('/api/toggle', function(req, res) {
+  // console.log('---------------------------> ', req.body);
+  db.toggleRequest(req.body, function() {
+    res.end('', 200);
   });
 });
 
@@ -102,7 +107,7 @@ app.post('/api/event', function(req, res){
   db.addEvent(eventObj, function(){
     res.end(200);
   });
-})
+});
 
 
 
