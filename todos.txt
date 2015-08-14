@@ -7,16 +7,12 @@
     - button should say login
   - style user profile
 
-- hide passwords - login and signup
-
 - events and request page
   - link to the organizer profile
 
 - userview make the table look pretty if there is no data
 
 - delete option should only be visible to owner
-
-- refresh profile when event or request is added
 
 - dropdown menus
   - location

@@ -12,7 +12,5 @@ angular.module('app.request', [])
       });
     };
 
-    init();
-
-    // TODO: call to Request.getRequest( {with inputs from the form}) 
+    init(); 
 }]);
