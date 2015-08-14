@@ -10,12 +10,35 @@
   </ul>
   <div class="postRequestForm" ng-show="showRequests">
     <form ng-submit="sendPostRequest()">
-      Requested Talent: <input type="text" ng-model="request.talent"><br>
-      Level: <input type="text" ng-model="request.level"><br>
-      Location: <input type="text" ng-model="request.location"><br>
+      Requested Talent: 
+      <select type="text" ng-model="request.talent">
+        <option ng-repeat="talent in talents">{{ talent }}</option>
+      </select><br>
+      Level: <select ng-model="request.level">
+        <option ng-repeat="level in levels">{{ level }}</option>
+      </select><br>
+      Location: <select ng-model="request.location">
+        <option ng-repeat="neighborhood in neighborhoods">{{ neighborhood }}</option>
+      </select><br>
       <input type="submit" value="SUBMIT">
     </form>
   </div>
+
+  <!-- <div class="postRequestForm" ng-show="showRequests">
+    <form ng-submit="sendPostRequest()">
+      Requested Talent: <select ng-model="request.talent">
+        <option ng-repeat="talent in talents">{{ talent }}</option>
+      </select><br>
+      Level: <select ng-model="request.level">
+        <option ng-repeat="level in levels">{{ level }}</option>
+      </select><br>
+      Location: <select ng-model="request.location">
+        <option ng-repeat="neighborhood in neighborhoods">{{ neighborhood }}</option>
+      </select><br>
+      <input type="submit" value="SUBMIT">
+    </form>
+  </div> -->
+  
   <div class="postEventForm" ng-show="showEvents">
     <form ng-submit="sendPostEvent()">
       Event Name: <input type="text" ng-model="ev.name"><br>
@@ -30,7 +53,9 @@
           <option ng-repeat="day in days">{{ day }}</option>
         </select>
       <br>
-      Neighborhood: <input type="text" ng-model="ev.neighborhood"><br>
+      Neighborhood: <select ng-model="ev.neighborhood">
+        <option ng-repeat="neighborhood in neighborhoods">{{ neighborhood }}</option>
+      </select><br>
       Address: <input type="text" ng-model="ev.address"><br>
       HashTags: <input type="text" ng-model="ev.hashtags"><br>
       <input type="submit" value="SUBMIT">

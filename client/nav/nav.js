@@ -5,7 +5,10 @@ angular.module('app.nav',[])
   $scope.years = [2015,2016,2017];
   $scope.months = [1,2,3,4,5,6,7,8,9,10,11,12];
   $scope.days = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
-
+  $scope.neighborhoods = ["Mission", "SOMA", "Downtown", "Western Addition", "Marina", "Castro", "Pac Heights", "Haight-Ashbury", "Oakland", "Berkeley"];
+  
+  $scope.talents = ['piano', 'guitar', 'bass', 'trombone', 'flute', 'violin', 'cello', 'voice', 'trumpet'];
+  $scope.levels = [1,2,3,4,5,6,7,8,9,10];
   $scope.request = {};
   $scope.ev = {
     organizer: $window.localStorage.getItem('uid')

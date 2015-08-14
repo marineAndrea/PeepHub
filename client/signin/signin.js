@@ -2,6 +2,12 @@ angular.module('app.signin', ['app.services'])
 
 .controller('signinController', ['$scope', '$location', 'HttpRequests', 'Auth', '$window', function($scope, $location, HttpRequests, Auth, $window){
   
+  $scope.neighborhoods = ["Mission", "SOMA", "Downtown", "Western Addition", "Marina", "Castro", "Pac Heights", "Haight-Ashbury", "Oakland", "Berkeley"];
+  
+  $scope.talents = ['piano', 'guitar', 'bass', 'trombone', 'flute', 'violin', 'cello', 'voice', 'trumpet'];
+  $scope.levels = [1,2,3,4,5,6,7,8,9,10];
+
+  
   $scope.user = {
     talents: [],
     links: []
