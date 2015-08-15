@@ -5,25 +5,31 @@
     <h1>Profile Picture:</h1><input type="text" ng-model="user.profilepic">
     <h1>Email:</h1><input type="text" ng-model="user.email"> <!-- TODO: check for e-mail format -->
     <h1>Password:</h1><input type="password" ng-model="user.password"> <!-- or whatever firebase needs TODO: hide password while typing-->
-    <h1>Location:</h1><select ng-model="user.location">
-        <option ng-repeat="neighborhood in neighborhoods">{{ neighborhood }}</option>
-      </select>
+    <h1>Location:</h1>
+    <select class="selection" ng-model="user.location">
+      <option ng-repeat="neighborhood in neighborhoods">{{ neighborhood }}</option>
+    </select>
 
-    <h1>Talents:</h1><div class="talents" ng-repeat="talent in user.talents"> <!-- TODO: if you press enter, it submits the whole form but doesn't add the talent -->
+    <h1>Talents:</h1>
+    <div class="talents" ng-repeat="talent in user.talents"> <!-- TODO: if you press enter, it submits the whole form but doesn't add the talent -->
       {{ talent.talent }}, {{ talent.level}}
-      </div>
-      Talent: <select ng-model="newTalent.talent">
+    </div>
+    <p class="selectionTitle">Talent:</p> 
+    <select class="selection" ng-model="newTalent.talent">
         <option ng-repeat="talent in talents">{{ talent }}</option>
-      </select><br>
-      Level: <select ng-model="newTalent.level">
+    </select><br>
+    <p class="selectionTitle">Level:</p> 
+    <select class="selection" ng-model="newTalent.level">
         <option ng-repeat="level in levels">{{ level }}</option>
-      </select><br>
-      <div class="addTalent" ng-click="addTalent()">ADD TALENT</div>
-    SoundCloud Links: <div class="links" ng-repeat="link in user.links">
+    </select><br>
+    <div class="addTalent" ng-click="addTalent()">ADD TALENT</div>
+    
+    <h1>SoundCloud Links:</h1>
+    <div class="links" ng-repeat="link in user.links">
       {{ link }}
-      </div>
-      <input ng-model="newLink" placeholder="Your link">
-      <div class="addLink" ng-click="addLink()">ADD LINK</div>
+    </div>
+    <input class="inputLink" ng-model="newLink" placeholder="Your link">
+    <div class="addLink" ng-click="addLink()">ADD LINK</div>
 
     <input type="submit" value="SIGN UP!!!">
   </form>

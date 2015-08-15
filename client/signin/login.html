@@ -1,6 +1,10 @@
 <loggedout></loggedout>
-<form class="loginform" ng-submit="login()">
-  Email: <input type="text" ng-model="user.email">
-  Password: <input type="text" ng-model="user.password">
-  <input type="submit" value="POST">
-</form>
+<div class="main">
+  <form class="loginform" ng-submit="login()">
+    <h1>Email:</h1> 
+    <input type="text" ng-model="user.email">
+    <h1>Password:</h1> 
+    <input type="password" ng-model="user.password">
+    <input type="submit" value="POST">
+  </form>
+</div>

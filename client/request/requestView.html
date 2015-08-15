@@ -1,20 +1,35 @@
 <loggedin></loggedin>
-<div class="main"
-  <form class="searchbar" ng-model="search">
-    Talent: <input type="text" ng-model="talentfilter">
-    Level: <input type="text" ng-model="levelfilter">
-    Location: <input type="text" ng-model="locationfilter">
-  </form>
+<div class="main">
+  <div class="requestsPage">
+    <h1 class="title"> Search for a request! </h1>
+    <form class="searchbar" ng-model="search">
+      <ul>
+        <li>
+          <p>Talent:</p>
+          <input type="text" ng-model="talentfilter">
+        </li>
+        <li>
+          <p>Level:</p>
+          <input type="text" ng-model="levelfilter">
+        </li>
+        <li>
+          <p>Location:</p>
+          <input type="text" ng-model="locationfilter">
+        </li>
+      </ul>
+    </form>
 
-  <div ng-filter="search" ng-model="requests">
-    <div class="requestlist" ng-repeat="request in requests | filter:{talent:talentfilter, level:levelfilter, location:locationfilter}">
-      <div class="username" ng-href="/user/{{ request.uid }}"> {{ request.username }} </div>
-      <div class="talent"> {{ request.talent }} </div>
-      <div class="level"> {{ request.level }} </div>
-      <div class="location"> {{ request.location }} </div>
-      <div class="gotouser">
-        <a class="linktouser" ng-href="http://localhost:8000/#/user/{{request.uid}}">Check it out!!</a>
+    <div class="requestsWrapper" ng-filter="search" ng-model="requests">
+      <div class="requestlist" ng-repeat="request in requests | filter:{talent:talentfilter, level:levelfilter, location:locationfilter}">
+        <div class="username" ng-href="/user/{{ request.uid }}"> {{ request.username }} </div>
+        <div class="reqTalent"> {{ request.talent }} </div>
+        <div class="reqLevel"> {{ request.level }} </div>
+        <div class="reqLocation"> {{ request.location }} </div>
+        <div class="requestSender">
+          <a class="linktouser" ng-href="http://localhost:8000/#/user/{{request.uid}}">Check it out!!</a>
+        </div>
       </div>
     </div>
+
   </div>
 </div>
