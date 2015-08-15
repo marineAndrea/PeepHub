@@ -1,66 +1,78 @@
 <loggedin></loggedin>
 
 <div class="main" ng-init="init()">
-  <div class="leftcolumn">  
-    <img class="profilepic" ng-src="{{ user.profilepic || 'https://avatars0.githubusercontent.com/u/11467677?v=3&s=460' }}">
-    <div class="username"> {{ user.username }} </div><br>
-    <div class="location"> {{ user.location }} </div><br>
-    <div class="email"> {{ user.email }} </div>
-  </div><!--
-  --><div class="rightcolumn">
-    <h1>Talents </h1>
-    <br>
-    <table> 
-      <tr>
-        <th>Talent</th> 
-        <th>Level</th> 
-      </tr>
-      <tr class="talentholder" ng-repeat="(talent, level) in user.talents"> 
-        <td><div class="talent"> {{ talent }} </div></td>
-        <td><div class="level"> {{ level }} </div></td>
-      </tr>
-    </table>
-    <br>
-    <h1> Links </h1>
-    <br>
-    <div class="linklist" ng-repeat="link in user.links"> 
-      <iframe class="link" ng-src="{{trustSrc(modifyLink(link))}}"></iframe>
+
+  <div class="leftcolumn">
+
+    <div class="profileInfo">
+      <img class="profilepic" ng-src="{{ user.profilepic || 'https://avatars0.githubusercontent.com/u/11467677?v=3&s=460' }}">
+      <div class="username"> {{ user.username }} </div><br>
+      <div class="location"> {{ user.location }} </div><br>
+      <div class="email"> {{ user.email }} </div>
     </div>
-    <br>
-    <h1> Requests </h1>
-    <br>
-    <table>
-      <tr>
-        <th>Talent</th>
-        <th>Level</th>
-        <th>Location</th>
-        <th>Options</th>
-      </tr>
-      <tr class="requestlist" ng-repeat="request in requests track by $index">
-        <td> {{ request.talent }}</td>
-        <td> {{ request.level }}</td>
-        <td> {{ request.location }}</td>
-        <td ng-click="deleteRequest($index)">delete</td>
-        <br>
-      </tr>
-    </table>
-    <br>
-    <h1> Events </h1>
-    <br>
-    <table>
-      <tr>
-        <th>Date</th>
-        <th>Name</th>
-        <th>Location</th>
-        <th>Hashtags</th>
-      </tr>
-      <tr class="eventlist" ng-repeat="event in events track by $index">
-        <td> {{ event.date.getFullYear() }}-{{ event.date.getMonth() }}-{{ event.date.getDay() }}</td>
-        <td> {{ event.name }}</td>
-        <td> {{ event.address }}<br><span class="neighborhood">{{ event.neighborhood }}</span></td>
-        <td> {{ event.hashtags.join(' ') }}</td>
-        <br>
-      </tr>
-    </table>  
+
+    <div class="profileLinks">
+      <h1> Links </h1>
+      <div class="linklist" ng-repeat="link in user.links"> 
+        <iframe class="link" ng-src="{{trustSrc(modifyLink(link))}}"></iframe>
+      </div>
+    </div>
+
   </div>
+  
+
+  <div class="rightcolumn">
+
+    <div class="profileTalents">
+      <h1> Talents </h1>
+      <table> 
+        <tr>
+          <th>Talent</th> 
+          <th>Level</th> 
+        </tr>
+        <tr class="talentholder" ng-repeat="(talent, level) in user.talents">
+          <td><div class="talent"> {{ talent }} </div></td>
+          <td><div class="level"> {{ level }} </div></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="profileRequests">
+      <h1> Requests </h1>
+      <table>
+        <tr>
+          <th>Talent</th>
+          <th>Level</th>
+          <th>Location</th>
+          <th>Options</th>
+        </tr>
+        <tr class="requestlist" ng-repeat="request in requests track by $index">
+          <td> {{ request.talent }}</td>
+          <td> {{ request.level }}</td>
+          <td> {{ request.location }}</td>
+          <td class='delete' ng-click="deleteRequest($index)">delete</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="profileEvents">
+      <h1> Events </h1>
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Hashtags</th>
+        </tr>
+        <tr class="eventlist" ng-repeat="event in events track by $index">
+          <td> {{ event.date.getFullYear() }}-{{ event.date.getMonth() }}-{{ event.date.getDay() }}</td>
+          <td> {{ event.name }}</td>
+          <td> {{ event.address }}<br><span class="neighborhood">{{ event.neighborhood }}</span></td>
+          <td> {{ event.hashtags.join(' ') }}</td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
 </div>

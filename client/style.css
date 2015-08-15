@@ -26,6 +26,13 @@ footer, header, hgroup, menu, nav, section {
 body {
   line-height: 1;
 }
+
+/* .cf:after {
+    content: " ";
+    display: table;
+    clear: both;
+} */
+
 ol, ul {
   list-style: none;
 }
@@ -44,20 +51,42 @@ table {
 
 /********************** end css reset**************/
 
-
-
-
 /* Custom CSS */
+
+/* .container {
+  width: 100%;
+  height: 100%;
+}
+ */
+
+
+/*************************************** BODY ***************************************/
+
 body {
   font-family: "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #666;
   font-weight: 100;
 }
 
-.container {
-  width: 100%;
-  height: 100%;
+
+/*************************************** MAIN ***************************************/
+
+.main {
+/*   vertical-align: top; */
+  margin: 0 auto;
+  padding: 2%;
+/*   height: 100vh; */
+  min-height: 100%;
+  background: #F2EDD8;
+/*   clearfix; */
+  font-size: 20px;
+  max-width: 960px;
+  min-width: 500px;
+  display: block;
 }
+
+
+/*************************************** NAV ***************************************/
 
 .navbar {
   width: 100%;
@@ -65,7 +94,7 @@ body {
   color: #F2F1EF;
   position: relative;
   text-align: center;
-  display: block;
+/*   display: block; */
   background: #44B3C2;
   
 }
@@ -75,31 +104,38 @@ body {
   color: #b8e2e8;
   font-weight: 400;
   font-size: 30px;
-  padding: 3px 0 0 0;
+/*   padding: 3px 0 0 0; */
 }
 
 .navlinks {
   display: inline-block;
-  float: none;
+/*   float: none; */
   width: 70%;
-  position: relative;
-  left: auto;
+/*   position: relative; */
+/*   left: auto; */
   padding: 10px 0 0 0;
   text-align: right;
 }
 .navlinks li {
   display: inline-block;
   width: 10%;
-  font-weight: 100;
-  vertical-align: center;
+/*   font-weight: 100; */
+/*   vertical-align: center; */
   margin: 0 1%;
 }
 
+
+/*************************************** FORMS ***************************************/
+
 .postRequestForm, .postEventForm {
+  margin-top:150px;
   background: #5D4C46;
   padding: 20px;
   display: inline-block;
 }
+
+
+/*************************************** INPUTS ***************************************/
 
 input[type=submit] {
   background-color: orange;
@@ -119,107 +155,221 @@ input[type=submit]:hover {
 }
 
 input[type=text], select {
-  /*text-align: right;*/
-  width: 300px;
+  width: 200px;
   display: block;
 }
 
-
-.searchbar {
-
+input {
+  margin: 0 auto;
 }
 
-.eventlist, .requestlist {
 
-}
+/*************************************** SIGNUP FORM ***************************************/
 
-.main {
-  vertical-align: top;
-  margin: 0 10%;
-  padding: 3%;
-  height: 100vh;
-  background: #F2EDD8;
-  font-size: 20px;
-  max-width: 960px;
-  min-width: 500px;
-  display: block;
-}
 .signupform {
-    width: 30%;
-    margin: 0 auto;
-    text-align: center;
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
 }
-.signupform input {
 
-    width: 90%;
-    margin: 0 auto;
+.signupform input {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.selectionTitle {
+  text-align: left;
+  padding-left: 10%;
+}
+
+.selection {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.addTalent:hover, .addLink:hover {
+  font-weight: bold;
+  color: #44B3C2;
+}
+
+.addTalent {
+  margin-bottom: 10px;
+}
+
+.addLink {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.inputLink {
+  margin: 20px;
+  width: 20px;
+}
+
+.links {
+  margin-bottom: 20%;
+  text-align:left;
+  width: 20px;
+}
+
+
+
+/*************************************** LOGIN ***************************************/
+
+.loginform {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.loginform input {
+  width: 20%;
+  display: block;
+}
+
+/*************************************** PROFILE ***************************************/
+
+.leftcolumn {
+  display: inline-block;
+  width: 32%;
+}
+
+.rightcolumn {
+  float: right;
+  display: inline-block;
+  width: 58%;
+  text-align: center;
+}
+
+.profileTalents, .profileRequests, .profileEvents, .profileLinks {
+/*   border: 1px solid black; */
+  background-color: white;
+  max-height: 300px;
+  margin-top: 20px;
+  text-align: center;
+  overflow: scroll;
+}
+
+.profileLinks {
+  background-color: #F2EDD8;
+  text-align: left;
+}
+
+.profileLinks {
+  max-height: 160px;
 }
 
 .profilepic {
   max-height: 300px;
   max-width: 300px;
   border-radius: 40px;
-  display: block;
-  margin-bottom: 10px;
-}
-.leftcolumn,.rightcolumn{
-  display: inline-block;
-  width: 50%;
-  vertical-align: top;
-}
-
-.leftcolumn div, .rightcolumn div {
-    vertical-align: top;
-    display: inline-block;
-    padding-left: 15px;
-    padding-bottom: 3px;
-}
-
-h1 {
-    display: inline-block;
-    font-weight: 600;
-    padding-bottom: 10px;
-    padding-top: 15px;
+  margin: 10px 0;
 }
 
 .username {
-    font-size: 40px;
-    color: #44B3C2;
-    font-weight: 300;
+  margin-top: 20px;
+  font-size: 40px;
+  color: #44B3C2;
+  font-weight: 300;
 }
 
-.location {
+.location, .email {
   font-style: italic;
   font-size: 25px;
 }
+
 .link {
-  width: 400px;
+  width: 80%;
   height: 110px;
+}
+
+h1 {
+  display: inline-block;
+  font-weight: 600;
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+
+table {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
 }
 
 th {
   font-weight: 400;
+  padding-bottom: 10px;
 }
-tr {
-  margin: 5px;
-  min-height: 100px;
+
+td {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
+
 td, th {
   min-width: 100px;
   text-align: center;
 }
 
-table {
-  display: inline-block;
-  padding-left: 10px
+.delete:hover {
+  color: red;
 }
 
+/*************************************** EVENTS & REQUESTS PAGES ***************************************/
 
+.eventsPage, .requestsPage {
+  text-align: center;
+/*   border: 1px solid black; */
+}
 
+.eventsWrapper, .requestsWrapper {
+  overflow: scroll;
+  height: 500px;
+}
 
+.title {
+  font-weight: bold;
+  font-size: 150%;
+  padding: 40px 0;
+}
 
+.searchbar li {
+  display: inline-block;
+  margin: 1%;
+}
 
+.searchbar input {
+  margin: 20px 0;
+}
 
+.eventlist, .requestlist {
+  background-color: white;
+  margin: 20px 0;
+}
 
+.eventDate, .eventOrganizer, .requestSender {
+  padding: 10px 0;
+}
 
+.eventName, .reqTalent {
+  font-weight: bold;
+  font-size: 150%;
+  padding: 20px 0;
+}
 
+.eventNeighborhood, .reqLocation {
+  padding: 10px 0;
+}
+
+.eventHashtags {
+  padding: 10px 0;
+  font-size: 120%;
+}
+
+.linktouser {
+  text-decoration: none;
+}
+
+.linktouser:hover {
+  color: #44B3C2;
+  font-weight: bold;
+}

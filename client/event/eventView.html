@@ -1,23 +1,39 @@
 <loggedin></loggedin>
 <div class="main">
-  <div ng-click='makeRandomEvent()'>click me to create random event</div>
-  <div> Search for an event! </div>
-  <form class="searchbar" ng-model="search">
-    Date: <input type="text" ng-model="datefilter">
-    Name: <input type="text" ng-model="namefilter">
-    Neighborhood: <input type="text" ng-model="neighborhoodfilter">
-    Hashtag: <input type="text" ng-model="hashtagfilter">
-  </form>
+  <!-- <div ng-click='makeRandomEvent()'>click me to create random event</div> -->
+  <div class="eventsPage">
+    <h1 class="title"> Search for an event! </h1>
+    <form class="searchbar" ng-model="search">
+      <ul>
+        <li>
+          <p>Date:</p>
+          <input type="text" ng-model="datefilter">
+        </li>
+        <li>
+          <p>Name:</p>
+          <input type="text" ng-model="namefilter">
+        </li>
+        <li>
+          <p>Neighborhood:</p>
+          <input type="text" ng-model="neighborhoodfilter">
+        </li>
+        <li>
+          <p>Hashtag:</p>
+          <input type="text" ng-model="hashtagfilter">
+        </li>
+      </ul>
+    </form>
 
-  <div ng-filter="search" ng-model="events">
-    <div class="eventlist" ng-repeat="event in events | filter:{name:namefilter, neighborhood:neighborhoodfilter, organizer:organizerfilter, hashtags:hashtagfilter}">
-      <div class="eventDate"> {{ event.date }} </div>
-      <div class="eventName"> {{ event.name }} </div>
-      <div class="eventNeighborhood"> {{ event.neighborhood }} </div>
-      <div class="eventOrganizer">
-        <a class="linktouser" ng-href="http://localhost:8000/#/user/{{event.uid}}">Contact organizer!</a>
+    <div class="eventsWrapper" ng-filter="search" ng-model="events">
+      <div class="eventlist" ng-repeat="event in events | filter:{name:namefilter, neighborhood:neighborhoodfilter, organizer:organizerfilter, hashtags:hashtagfilter}">
+        <div class="eventDate"> {{ event.date }} </div>
+        <div class="eventName"> {{ event.name }} </div>
+        <div class="eventNeighborhood"> {{ event.neighborhood }} </div>
+        <div class="eventOrganizer">
+          <a class="linktouser" ng-href="http://localhost:8000/#/user/{{event.uid}}">Contact organizer!</a>
+        </div>
+        <div class="eventHashtags"> {{ event.hashtags.join(' ') }} </div>
       </div>
-      <div class="eventHashtags"> {{ event.hashtags.join(' ') }} </div>
     </div>
   </div>
 </div>
