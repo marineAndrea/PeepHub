@@ -61,24 +61,36 @@ table {
 
 
 /*************************************** BODY ***************************************/
-
 body {
   font-family: "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #666;
   font-weight: 100;
+  background-color: #F2FEFF;
 }
 
+.ng-hide-add, .ng-hide-remove {
+  -webkit-transition:all linear 1s;
+  -moz-transition:all linear 1s;
+  -o-transition:all linear 1s;
+  transition:all linear 1s;
+  display:block!important;
+}
+.ng-hide-add.ng-hide-add-active,
+.ng-hide-remove {
+  opacity:0;
+}
+.ng-hide-add,
+.ng-hide-remove.ng-hide-remove-active {
+  opacity:1;
+}
 
 /*************************************** MAIN ***************************************/
 
 .main {
-/*   vertical-align: top; */
   margin: 0 auto;
   padding: 2%;
-/*   height: 100vh; */
   min-height: 100%;
-  background: #F2EDD8;
-/*   clearfix; */
+  background: #FFEEC7;
   font-size: 20px;
   max-width: 960px;
   min-width: 500px;
@@ -87,16 +99,18 @@ body {
 
 
 /*************************************** NAV ***************************************/
-
+.navbarwrapper {
+    position: fixed;
+    width: 100%;
+}
 .navbar {
   width: 100%;
   height: 50px;
   color: #F2F1EF;
   position: relative;
   text-align: center;
-/*   display: block; */
+  /*   display: block; */
   background: #44B3C2;
-  
 }
 
 .headercompanyname {
@@ -126,12 +140,17 @@ body {
 
 
 /*************************************** FORMS ***************************************/
+.postRequestFormwrapper, .postEventFormwrapper {
+  text-align: center;
+
+}
 
 .postRequestForm, .postEventForm {
-  margin-top:150px;
+  margin: 0 auto;
   background: #5D4C46;
   padding: 20px;
   display: inline-block;
+  color: #F0F8FF;
 }
 
 
@@ -157,6 +176,7 @@ input[type=submit]:hover {
 input[type=text], select {
   width: 200px;
   display: block;
+  margin: 2px;
 }
 
 input {
@@ -240,9 +260,13 @@ input {
   text-align: center;
 }
 
+.leftcolumn, .rightcolumn{
+  margin-top: 30px;
+}
+
 .profileTalents, .profileRequests, .profileEvents, .profileLinks {
 /*   border: 1px solid black; */
-  background-color: white;
+  background-color: #F0F8FF;
   max-height: 300px;
   margin-top: 20px;
   text-align: center;
@@ -342,8 +366,9 @@ td, th {
 }
 
 .eventlist, .requestlist {
-  background-color: white;
+  background-color: #ECECEC;
   margin: 20px 0;
+  border-radius: 10px;
 }
 
 .eventDate, .eventOrganizer, .requestSender {
