@@ -12,7 +12,7 @@ var Johndoe =  {
   location: "Oakland",
   uid: "0123ABC",
   email: "JohnDoe@gmail.com"
-}
+};
 
 // console.log(patrick);
 // addUser(Johndoe, function(results){
@@ -23,7 +23,7 @@ var talents = {
   'Piano': 5,
   'Guitar': 7,
   'Trumpet': 5
-}
+};
 
 User.findOne({uid: '01234ABC'}, function(err, results){
   console.log(err, results);
@@ -96,7 +96,7 @@ var Event1 = {
   uid: "0123ABC",
   hashtag: "#rockout",
   users: ["Bobby", "Jack", "Black"]
-}
+};
 
 // dbparse.addEvent(Event1, function(results){
 //   console.log(results);

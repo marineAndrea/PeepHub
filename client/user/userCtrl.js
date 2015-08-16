@@ -40,7 +40,7 @@ angular.module('app.user', [])
       .then(function(requests){
         var requestsByUid = [];
         for (var i = 0; i < requests.data.length; i++) {
-          if (requests.data[i]['uid'] === $routeParams.uid) {
+          if (requests.data[i].uid === $routeParams.uid) {
             requestsByUid.push(requests.data[i]);
           }
         }
@@ -53,7 +53,7 @@ angular.module('app.user', [])
       .then(function(requests){
         var eventsByUid = [];
         for (var i = 0; i < requests.data.length; i++) {
-          if (requests.data[i]['organizer'] === $routeParams.uid) {
+          if (requests.data[i].organizer === $routeParams.uid) {
             requests.data[i].date = new Date(requests.data[i].date);
             eventsByUid.push(requests.data[i]);
             eventsByUid[eventsByUid.length - 1].date = new Date(requests.data[i].date);
