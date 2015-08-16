@@ -39,6 +39,15 @@ module.exports = function(grunt) {
     //     }
     // },
 
+    'heroku-deploy' : {
+        production : {
+            deployBranch : 'prod'
+        },
+        staging : {
+            deployBranch : 'staging'
+        }
+    },
+
 
     watch: {
       scripts: {
@@ -51,6 +60,8 @@ module.exports = function(grunt) {
       }
     }
   });
+
+
 
   // Don't worry about this one - it just works. You'll see when you run `grunt`.
   grunt.loadNpmTasks('grunt-notify');
