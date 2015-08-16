@@ -13,7 +13,7 @@ angular.module('app.randomEvent',[])
     address: '628 Divisadero Street',
   },{
     location: "Dr. Teeth", 
-    neighborhood: "The Mission",
+    neighborhood: "Mission",
     address: '2300 Mission Street',
   }, { 
     location: "Bimbo's 365", 
@@ -36,15 +36,15 @@ angular.module('app.randomEvent',[])
     address: "859 O'Farrell Street"
   },{
     location:"The Warfield", 
-    neighborhood: "Tenderloin",
+    neighborhood: "Downtown",
     address: '982 Market Street',
   }, {
     location:"1015 Folsom", 
-    neighborhood: "Soma",
+    neighborhood: "SOMA",
     address: '1015 Folsom Street',
   }, {
     location:"Ruby Skye", 
-    neighborhood: "Tenderloin",
+    neighborhood: "Downtown",
     address: '420 Mason Street',
   }];
 

@@ -173,10 +173,10 @@ input[type=submit]:hover {
   background-color: red;
 }
 
-input[type=text], select {
-  width: 200px;
-  display: block;
-  margin: 2px;
+input[type=text], input[type=password], select {
+  /* width: 200px; */
+  /* display: block; */
+  /* margin: 2px; */
 }
 
 input {
@@ -185,6 +185,9 @@ input {
 
 
 /*************************************** SIGNUP FORM ***************************************/
+.loginform .signinbutton {
+  margin-top: 5px;
+}
 
 .signupform {
   width: 30%;
@@ -197,6 +200,9 @@ input {
   margin: 0 auto;
 }
 
+.loginform input {
+  margin: auto;
+}
 .selectionTitle {
   text-align: left;
   padding-left: 10%;

@@ -1,9 +1,10 @@
 <loggedout></loggedout>
 <div class="main">
+    <!-- <div ng-click="generateUsers()">click me to generate users</div> -->
   <form class="signupform" ng-submit="signup()">
-    <h1>Name:</h1><input type="text" ng-model="user.username">
-    <h1>Profile Picture:</h1><input type="text" ng-model="user.profilepic">
-    <h1>Email:</h1><input type="text" ng-model="user.email"> <!-- TODO: check for e-mail format -->
+    <h1>Name:</h1><br><input type="text" ng-model="user.username">
+    <h1>Profile Picture:</h1><br><input type="text" ng-model="user.profilepic"><br>
+    <h1>Email:</h1><br><input type="text" ng-model="user.email"> <!-- TODO: check for e-mail format -->
     <h1>Password:</h1><input type="password" ng-model="user.password"> <!-- or whatever firebase needs TODO: hide password while typing-->
     <h1>Location:</h1>
     <select class="selection" ng-model="user.location">
