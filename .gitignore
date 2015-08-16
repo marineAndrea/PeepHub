@@ -6,3 +6,4 @@ build/
 dist/
 
 client/bower_components/
+minified/bower_components/
