@@ -70,7 +70,7 @@ angular.module('app.randomEvent',[])
     };
 
     return randomEvent;
-  }
+  };
 }]);
 
 
