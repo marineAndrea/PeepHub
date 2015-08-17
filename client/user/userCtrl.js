@@ -10,7 +10,6 @@ angular.module('app.user', [])
     };
   
     $scope.deleteRequest = function(index) {
-      console.log('index', index, 'sc-req', $scope.requests);
       HttpRequests.makeRequestInactive($scope.requests[index]._id)
         .then(function(){
           console.log($scope.requests.slice(0,index));
@@ -19,7 +18,6 @@ angular.module('app.user', [])
     };
     
     var init = function() {
-      
       if ($routeParams.uid === undefined) {
         console.log('no user id');
         $location.path('/user/' + $window.localStorage.getItem('uid'));

@@ -61,7 +61,7 @@ app.config(function($routeProvider, $sceDelegateProvider){
       templateUrl: '/user/userView.html',
       controller: 'UserController',
       resolve: requireAuthResolve
-    }); // should redirect to /user/currentUserName
+    });
 });
 
 

@@ -37,10 +37,8 @@ app.get('/api/users', function(req, res){
 
 app.post('/api/user', function(req, res) {
   // receive user object
-  // add it to database
-  // respond with 304 - TODO: redirect here or client-side? 
   var userObj = req.body;
-  // console.log("============================>", req.body);
+  // add it to database
   db.addUser(userObj, function(){
     res.end();
   });
@@ -50,9 +48,7 @@ app.get('/api/requests/:UID', function(req, res){
   // receive UID
   // return events under UID
   var UID = req.params.UID;
-  // console.log(req.params.UID);
   db.getUIDRequests(UID, function(requestsData){
-    // console.log("49", requestsData);
     res.end(JSON.stringify(requestsData));
   });
 });
@@ -61,7 +57,6 @@ app.get('/api/requests', function(req, res){
   // right now get all requests TODO filter requests
   // return object of requests
   db.getRequests(function(requests){
-    console.log('-------------------------------------> req ',requests);
     res.end(JSON.stringify(requests));
   });
 });
@@ -73,7 +68,6 @@ app.post('/api/toggle', function(req, res) {
 });
 
 app.post('/api/request', function(req, res){
-  // console.log('-------------> ', req.body);
   var reqObj = req.body;
   db.addRequest(reqObj, function(){
     res.end(200);
