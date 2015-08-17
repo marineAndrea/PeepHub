@@ -87,8 +87,7 @@ angular.module('app.services', ['firebase'])
     var base_url = window.location.origin;
     // var port = process.env.PORT || 8000;
     var hostUrl = base_url + '/api';
-    debugger;
-    
+        
     var signupUser = function(user){
       // send to firebase
       // var uid = UID from firebase
