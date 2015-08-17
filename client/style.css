@@ -90,7 +90,7 @@ body {
   margin: 0 auto;
   padding: 2%;
   min-height: 100%;
-  background: #FFEEC7;
+  background: #D6D0CB;
   font-size: 20px;
   max-width: 960px;
   min-width: 500px;
@@ -138,6 +138,11 @@ body {
   margin: 0 1%;
 }
 
+.navlinks li:hover {
+  cursor: pointer;
+  color: #FFD27F;
+  font-weight: 500;
+}
 
 /*************************************** FORMS ***************************************/
 .postRequestFormwrapper, .postEventFormwrapper {
@@ -256,7 +261,7 @@ input {
 
 .leftcolumn {
   display: inline-block;
-  width: 32%;
+  width: 38%;
 }
 
 .rightcolumn {
@@ -270,16 +275,16 @@ input {
   margin-top: 30px;
 }
 
-.profileTalents, .profileRequests, .profileEvents, .profileLinks {
+.profileInfo, .profileTalents, .profileRequests, .profileEvents, .profileLinks {
 /*   border: 1px solid black; */
-  background-color: #F2FEFF;
+  background-color: rgb(247, 247, 247);
   margin-top: 20px;
   text-align: center;
-  overflow: scroll;
-}
+  overflow-y: scroll;
+border-radius: 8px;padding: 10px;}
 
 .profileLinks {
-  background-color: #F2FEFF;
+  background-color: #F7F7F7;
   text-align: center;
   padding: 10px;
 }
@@ -316,6 +321,7 @@ h1 {
   font-weight: 600;
   padding-bottom: 20px;
   padding-top: 10px;
+  color: #44B3C2;
 }
 
 table {
@@ -402,4 +408,7 @@ td, th {
 .linktouser:hover {
   color: #44B3C2;
   font-weight: bold;
+}
+.profileInfo {
+    background-color: #F7F7F7;
 }
