@@ -84,8 +84,10 @@ angular.module('app.services', ['firebase'])
   ])
 
   .factory('HttpRequests', ['$http', '$location', function($http, $location){
-    var hostUrl = 'http://localhost:8000/api';
-    
+    var base_url = window.location.origin;
+    // var port = process.env.PORT || 8000;
+    var hostUrl = base_url + '/api';
+        
     var signupUser = function(user){
       // send to firebase
       // var uid = UID from firebase

@@ -30,7 +30,7 @@
         <div class="eventName"> {{ event.name }} </div>
         <div class="eventNeighborhood"> {{ event.neighborhood }} </div>
         <div class="eventOrganizer">
-          <a class="linktouser" ng-href="http://localhost:8000/#/user/{{event.uid}}">Contact organizer!</a>
+          <a class="linktouser" ng-href="{{window.location.origin}}/#/user/{{event.uid}}">Contact organizer!</a>
         </div>
         <div class="eventHashtags"> {{ event.hashtags.join(' ') }} </div>
       </div>

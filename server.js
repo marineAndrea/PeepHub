@@ -5,7 +5,7 @@ var db = require('./DB/dbparser');
 var morgan      = require('morgan');
 var bodyParser  = require('body-parser');
 
-var portNum = 8000;
+var portNum = process.env.PORT || 8000;
 
 // Start Express server
 var app = express();
