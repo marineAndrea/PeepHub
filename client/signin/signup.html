@@ -15,23 +15,30 @@
     <div class="talents" ng-repeat="talent in user.talents"> <!-- TODO: if you press enter, it submits the whole form but doesn't add the talent -->
       {{ talent.talent }}, {{ talent.level}}
     </div>
-    <p class="selectionTitle">Talent:</p> 
-    <select class="selection" ng-model="newTalent.talent">
-        <option ng-repeat="talent in talents">{{ talent }}</option>
-    </select><br>
-    <p class="selectionTitle">Level:</p> 
-    <select class="selection" ng-model="newTalent.level">
-        <option ng-repeat="level in levels">{{ level }}</option>
-    </select><br>
-    <div class="addTalent" ng-click="addTalent()">ADD TALENT</div>
+    <table class='talentselect'>
+        <tr class="selectionTitle">
+            <td>Talent:</td> 
+            <td><select class="selection" ng-model="newTalent.talent">
+                <option ng-repeat="talent in talents">{{ talent }}</option>
+            </select>
+            </td>
+        </tr>
+        <tr class="selectionTitle">
+        <td>Level:</td>
+        <td><select class="selection" ng-model="newTalent.level">
+            <option ng-repeat="level in levels">{{ level }}</option>
+        </select></td>
+        </tr>
+    </table> 
+    <div class="button addbutton" ng-click="addTalent()">ADD TALENT</div>
     
     <h1>SoundCloud Links:</h1>
     <div class="links" ng-repeat="link in user.links">
       {{ link }}
     </div>
     <input class="inputLink" ng-model="newLink" placeholder="Your link">
-    <div class="addLink" ng-click="addLink()">ADD LINK</div>
+    <div class="button addbutton" ng-click="addLink()">ADD LINK</div>
 
-    <input type="submit" value="SIGN UP!!!">
+    <input class="button signinbutton" type="submit" value="SIGN UP!!!">
   </form>
 </div>

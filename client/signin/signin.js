@@ -103,14 +103,14 @@ angular.module('app.signin', ['app.services'])
      var password = $scope.user.password;
      Auth.signup(email, password)
      .then(function(userData){
-      console.log('userdata', userData.uid);
        $scope.user.uid = userData.uid;
        HttpRequests.signupUser($scope.user, userData)
        .then(function(response){
          $window.localStorage.setItem('uid', userData.uid);
          Auth.login(email, password)
           .then(function(){
-           $location.path('/user/'+ userData.uid);
+            console.log('-------------->', userData);
+            $location.path('/user/'+ userData.uid);
           })
           .catch(function(){
             console.log('login failed!!!');
