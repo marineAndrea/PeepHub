@@ -19,7 +19,6 @@ angular.module('app.user', [])
     };
     
     var init = function() {
-      
       if ($routeParams.uid === undefined) {
         console.log('no user id');
         $location.path('/user/' + $window.localStorage.getItem('uid'));

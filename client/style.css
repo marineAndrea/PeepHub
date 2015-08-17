@@ -272,20 +272,20 @@ input {
 
 .profileTalents, .profileRequests, .profileEvents, .profileLinks {
 /*   border: 1px solid black; */
-  background-color: #F0F8FF;
-  max-height: 300px;
+  background-color: #F2FEFF;
   margin-top: 20px;
   text-align: center;
   overflow: scroll;
 }
 
 .profileLinks {
-  background-color: #F2EDD8;
-  text-align: left;
+  background-color: #F2FEFF;
+  text-align: center;
+  padding: 10px;
 }
 
 .profileLinks {
-  max-height: 160px;
+  /* max-height: 160px; */
 }
 
 .profilepic {
@@ -309,7 +309,6 @@ input {
 
 .link {
   width: 80%;
-  height: 110px;
 }
 
 h1 {
@@ -372,7 +371,7 @@ td, th {
 }
 
 .eventlist, .requestlist {
-  background-color: #ECECEC;
+  background-color: #F2FEFF;
   margin: 20px 0;
   border-radius: 10px;
 }
