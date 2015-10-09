@@ -1,4 +1,4 @@
-# Peep Up
+# PeepHub
 
 > Pithy project description
 
